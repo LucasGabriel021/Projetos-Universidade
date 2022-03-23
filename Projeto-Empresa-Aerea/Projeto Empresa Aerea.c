@@ -1,80 +1,79 @@
-//Neste projeto tive ajuda de um aluno(Leonardo) e do monitor Igor Silva!
 
-//Projeto de levantamento de preÁos de uma empresa aerea
+//Projeto de levantamento de pre√ßos de uma empresa aerea
 
 //Bibliotecas
-#include <stdio.h>//Biblioteca de comandos de entrada e saÌda
+#include <stdio.h>//Biblioteca de comandos de entrada e sa√≠da
 #include <stdlib.h>//Biblioteca de comandos gerais
-#include <locale.h>//Biblioteca de acentuaÁ„o
+#include <locale.h>//Biblioteca de acentua√ß√£o
 #include <string.h>//Biblioteca que permite manipular string
 #include <ctype.h>//Biblioteca de manipular caractere
 
-//Definir cores com seus respectivos cÛdigos 
+//Definir cores com seus respectivos c√≥digos 
 #define RED "\x1b[91m"//Cor vermelha
 #define GREEN "\x1b[32m"//Cor verde
 #define BLUE "\x1b[34m"//Cor azul
 #define RESET "\x1b[0m"//Resetar cores
 
-//DeclaraÁ„o de funÁıes utilizadas no programa
-void preencheVetor(int,char[]);//FunÁ„o para preencher vetor
-void mostraStatus(int,char[]);//FunÁ„o de mostrar status
-void preencherLugar(int,char[]);//FunÁ„o de preencher lugar
-void cancelarReserva(int,char[]);//FunÁ„o de cancelar reserva
-int efetivarCompra(int ,char[]);//FunÁ„o efetivar compra
-void relatorio(int,char[]);//FunÁ„o relatÛrio
+//Declara√ß√£o de fun√ß√µes utilizadas no programa
+void preencheVetor(int,char[]);//Fun√ß√£o para preencher vetor
+void mostraStatus(int,char[]);//Fun√ß√£o de mostrar status
+void preencherLugar(int,char[]);//Fun√ß√£o de preencher lugar
+void cancelarReserva(int,char[]);//Fun√ß√£o de cancelar reserva
+int efetivarCompra(int ,char[]);//Fun√ß√£o efetivar compra
+void relatorio(int,char[]);//Fun√ß√£o relat√≥rio
 
-//FunÁ„o principal
+//Fun√ß√£o principal
 int main(void) {
 
-//DeclaraÁ„o das vari·veis	
-char destino[40], assentos[200];//Vari·veis do tipo caractere
-int quantidadeAssento, numero, lugar, idade, valorPassagem, novaPassagem, valorTotal;//Vari·veis do tipo inteiro
+//Declara√ß√£o das vari√°veis	
+char destino[40], assentos[200];//Vari√°veis do tipo caractere
+int quantidadeAssento, numero, lugar, idade, valorPassagem, novaPassagem, valorTotal;//Vari√°veis do tipo inteiro
 
 valorTotal = 0;
 novaPassagem = 0;
 quantidadeAssento = 0;
 valorPassagem = 0;
 
-//ComeÁo do cÛdigo
+//Come√ßo do c√≥digo
     system("color F");
     setlocale(LC_ALL, "Portuguese");
 
-//Printf comando de saÌda, ou seja, algo estar· escrito na tela
+//Printf comando de sa√≠da, ou seja, algo estar√° escrito na tela
                         printf(" ______________________________________________________________________________________________________________________\n");
                         printf("|                                                                                                                      |\n");
-                        printf("|                                         Bem vindo ‡ SALUMAR LINHAS AEREAS!!!                                         |\n");
-                        printf("|                      Digite as informaÁıes abaixo para fazermos as verificaÁıes necess·rias.                         |\n");
+                        printf("|                                         Bem vindo √† SALUMAR LINHAS AEREAS!!!                                         |\n");
+                        printf("|                      Digite as informa√ß√µes abaixo para fazermos as verifica√ß√µes necess√°rias.                         |\n");
                         printf("|                                                                                                                      |\n");
                         printf("|______________________________________________________________________________________________________________________|\n\n");
 
-//Comando de repetiÁ„o do While, onde ele executa uma vez e depois verifica a condiÁ„o
+//Comando de repeti√ß√£o do While, onde ele executa uma vez e depois verifica a condi√ß√£o
         do
         {
 	                    printf("Informe o destino escolhido por nossos clientes: ");//Escreve algo na tela
                         fflush(stdin);	//Limpa o buffet do teclado
 	                    gets(destino); //Recebe dados do tipo string 
 	
-	        if(strcmp(destino,"")==0) //Comando se, condiÁ„o
-	                    printf("Esse destino n„o existe em nosso sistema, tente novamente!\n ");
+	        if(strcmp(destino,"")==0) //Comando se, condi√ß√£o
+	                    printf("Esse destino n√£o existe em nosso sistema, tente novamente!\n ");
 	
-	        else //Comnado ent„o, condiÁ„o
-	                    printf("Seus dados est„o corretos! Prossiga com a operaÁ„o.\n\n"); 
+	        else //Comnado ent√£o, condi√ß√£o
+	                    printf("Seus dados est√£o corretos! Prossiga com a opera√ß√£o.\n\n"); 
 	
-        }while(strcmp(destino,"")==0);//Comparar se n„o È um nome nulo
+        }while(strcmp(destino,"")==0);//Comparar se n√£o √© um nome nulo
 
 
 //Segundo do While
         do
         {
-        	            printf("Informe quantos assentos est„o dÌsponiveis para o voo em quest„o: ");
+        	            printf("Informe quantos assentos est√£o d√≠sponiveis para o voo em quest√£o: ");
         	            fflush(stdin);
         	            scanf("%i", &quantidadeAssento);//Ler dados 
         	
         	if((quantidadeAssento < 90) || (quantidadeAssento >= 200))
-        	            printf("Neste voo n„o e permitido esse quantitativo de assentos, por favor enforme novamente a quantidade.\n");
+        	            printf("Neste voo n√£o e permitido esse quantitativo de assentos, por favor enforme novamente a quantidade.\n");
         	
             else       	
-        	            printf("A informaÁ„o est· correta! Prossiga com a operaÁ„o.\n\n");  
+        	            printf("A informa√ß√£o est√° correta! Prossiga com a opera√ß√£o.\n\n");  
         	
 		}while((quantidadeAssento < 90) || (quantidadeAssento >= 200));
 
@@ -88,18 +87,18 @@ valorPassagem = 0;
 			            scanf("%i", &valorPassagem);  
 			
 			if(valorPassagem == 0)    
-			            printf("Valor da passagem est· invalido! Tente novamente.\n ");
+			            printf("Valor da passagem est√° invalido! Tente novamente.\n ");
 			
 			else
-			            printf("A informaÁ„o est· correta! Prossiga com a operaÁ„o.\n\n");			      
+			            printf("A informa√ß√£o est√° correta! Prossiga com a opera√ß√£o.\n\n");			      
        	
 	   }while(valorPassagem == 0);
 
-//InformaÁıes a serem exibidas na tela logo em seguida	   
+//Informa√ß√µes a serem exibidas na tela logo em seguida	   
 	                    printf(" ______________________________________________________________________________________________\n");
 	                    printf("|                                                                                              |\n");
-	                    printf("|   Logo abaixo ter· um menu onde a empresa poder· selecionar a opÁ„o que melhor satisfazela,  |\n");
-                        printf("|   para ativar a opÁ„o desejada, digite o n˙mero o qual a opÁ„o est· indicada.                |\n");  
+	                    printf("|   Logo abaixo ter√° um menu onde a empresa poder√° selecionar a op√ß√£o que melhor satisfazela,  |\n");
+                        printf("|   para ativar a op√ß√£o desejada, digite o n√∫mero o qual a op√ß√£o est√° indicada.                |\n");  
                         printf("|______________________________________________________________________________________________|\n\n");
 
 
@@ -111,19 +110,19 @@ preencheVetor(quantidadeAssento, assentos);
                         printf("\n\n");
                         printf(" _______________________________________________________________\n"); 
 						printf("|                                                               |\n");
-						printf("|              Selecione uma opÁ„o abaixo:                      |\n");       
+						printf("|              Selecione uma op√ß√£o abaixo:                      |\n");       
                         printf("|                                                               |\n");
                         printf("|             1 - Efetuar reserva.                              |\n");
                         printf("|             2 - Confirmar uma reserva.                        |\n");
                         printf("|             3 - Cancelar uma reserva.                         |\n");
-                        printf("|             4 - Verificar ocupaÁ„o de um voo.                 |\n");
-                        printf("|             5 - RelatÛrio de vendas.                          |\n");
+                        printf("|             4 - Verificar ocupa√ß√£o de um voo.                 |\n");
+                        printf("|             5 - Relat√≥rio de vendas.                          |\n");
                         printf("|             7 - Sair do programa                              |\n");
                         printf("|                                                               |\n");
                         printf("|_______________________________________________________________|");
 
                        
-                        printf("\n\nQual opÁ„o deseja executar: ");
+                        printf("\n\nQual op√ß√£o deseja executar: ");
                         fflush(stdin);
                         scanf("%i", &numero);
 
@@ -132,24 +131,24 @@ preencheVetor(quantidadeAssento, assentos);
             switch(numero)
 			{
             	
-//OpÁ„o 1 do switch            	
+//Op√ß√£o 1 do switch            	
                     case 1: 
                     
                 system("cls");     
                     
                         printf(" _______________________________________________________________\n"); 
 						printf("|                                                               |\n");
-                        printf("|                 Mapa de calor do avi„o abaixo:                |\n");
+                        printf("|                 Mapa de calor do avi√£o abaixo:                |\n");
                         printf("|                                                               |\n");
                         printf("|_______________________________________________________________|\n\n");
                         
-                        mostraStatus(quantidadeAssento,assentos);//FunÁ„o de preencher os assentos
+                        mostraStatus(quantidadeAssento,assentos);//Fun√ß√£o de preencher os assentos
                         printf("\n\nDigite a poltrona que o senhor(a), deseja reservar:");
                         fflush(stdin);
                         scanf("%i",&lugar);
                             preencherLugar(lugar,assentos);
                         
-                        printf("\n\nLogo abaixo, ser· solicitado a idade, caso seja menor que 5 anos, a pssagem tem desconto de 50 por cento.\n");
+                        printf("\n\nLogo abaixo, ser√° solicitado a idade, caso seja menor que 5 anos, a pssagem tem desconto de 50 por cento.\n");
                         
                         printf("Informe sua idade: ");  
                         fflush(stdin);
@@ -158,22 +157,22 @@ preencheVetor(quantidadeAssento, assentos);
                         if (idade <= 5)
                         {
 							novaPassagem = (valorPassagem / 2);
-							printf("O valor a ser cobrado com desconto È de R$ %i,00. \n\n", novaPassagem);  
+							printf("O valor a ser cobrado com desconto √© de R$ %i,00. \n\n", novaPassagem);  
                         }
                         
                         else if (idade > 5){
-                            printf("O preÁo da passagem a ser pago È de R$ %i,00. \n\n", valorPassagem);}                       
+                            printf("O pre√ßo da passagem a ser pago √© de R$ %i,00. \n\n", valorPassagem);}                       
                     break;
                     
 				
-//OpÁ„o 2 do switch    
+//Op√ß√£o 2 do switch    
                     case 2:
                     	
                     system("cls");	
                     	
                     	printf(" _______________________________________________________________\n"); 
 						printf("|                                                               |\n");
-                        printf("|                 ConfirmaÁ„o de reserva:                       |\n");
+                        printf("|                 Confirma√ß√£o de reserva:                       |\n");
                         printf("|                                                               |\n");
                         printf("|_______________________________________________________________|\n\n");
                     	
@@ -182,27 +181,27 @@ preencheVetor(quantidadeAssento, assentos);
                         fflush(stdin);
                         scanf("%i",&lugar);
                         
-                        lugar = efetivarCompra(lugar, assentos);//FunÁ„o para a confirmaÁ„o de lugares 
+                        lugar = efetivarCompra(lugar, assentos);//Fun√ß√£o para a confirma√ß√£o de lugares 
                             
                         if(lugar == 1) 
                             printf("Compra realizada com sucesso!");
                             
                         else if(lugar == 5)
-                            printf("Lugar j· foi comprado");
+                            printf("Lugar j√° foi comprado");
           
                         else
-                            printf("Este lugar esta sem reserva ou j· foi comprado. FaÁa sua reserva primeiro!");        
+                            printf("Este lugar esta sem reserva ou j√° foi comprado. Fa√ßa sua reserva primeiro!");        
                     break;
 
                 
-//OpÁ„o 3 do switch                
+//Op√ß√£o 3 do switch                
                     case 3:
                     	
                 system("cls");    	
                     	
                     	printf(" _______________________________________________________________\n"); 
 						printf("|                                                               |\n");
-                        printf("|                 Mapa de calor do avi„o abaixo:                |\n");
+                        printf("|                 Mapa de calor do avi√£o abaixo:                |\n");
                         printf("|                                                               |\n");
                         printf("|_______________________________________________________________|\n\n");
                     	
@@ -212,18 +211,18 @@ preencheVetor(quantidadeAssento, assentos);
                         fflush(stdin);
                         scanf("%i",&lugar);
                         
-                        cancelarReserva(lugar,assentos);//FunÁ„o para o cancelamento de assentos j· reservados 
+                        cancelarReserva(lugar,assentos);//Fun√ß√£o para o cancelamento de assentos j√° reservados 
                     break;
                 
                 
-//OpÁ„o 4 do switch                
+//Op√ß√£o 4 do switch                
                     case 4:
                     	
                 system("cls");    	
                     	
                     	printf(" _______________________________________________________________\n"); 
 						printf("|                                                               |\n");
-                        printf("|                 Mapa de calor do avi„o abaixo:                |\n");
+                        printf("|                 Mapa de calor do avi√£o abaixo:                |\n");
                         printf("|                                                               |\n");
                         printf("|_______________________________________________________________|\n\n");
                     	
@@ -232,12 +231,12 @@ preencheVetor(quantidadeAssento, assentos);
                     break;
 
                 
-//OpÁ„o 5 do switch                
+//Op√ß√£o 5 do switch                
                     case 5:
                     	
                 system("cls");
                     	
-                        relatorio(quantidadeAssento,assentos);//FunÁ„o de relatÛrio
+                        relatorio(quantidadeAssento,assentos);//Fun√ß√£o de relat√≥rio
                     break;
     }
           
@@ -247,7 +246,7 @@ preencheVetor(quantidadeAssento, assentos);
 }
 
 
-//FunÁ„o de preencher um vetor
+//Fun√ß√£o de preencher um vetor
 void preencheVetor (int quantidadeAssento,char assentos[200])
 {
 	int i;
@@ -257,14 +256,14 @@ void preencheVetor (int quantidadeAssento,char assentos[200])
 }
 
 
-//FunÁ„o de mostrar status
+//Fun√ß√£o de mostrar status
 void mostraStatus (int quantidadeAssento,char assentos[200])
 {
 	int i;
   for(i = 0; i < quantidadeAssento; i++){
     printf("[%i] = %c",i+1,assentos[i]);
  
-//MudanÁa de cor no sistema 
+//Mudan√ßa de cor no sistema 
    
     if (assentos[i] == 'R')
     printf(RED"[%i] = %c"RESET, i+1, assentos[i]);
@@ -276,21 +275,21 @@ void mostraStatus (int quantidadeAssento,char assentos[200])
 }
 
 
-//FunÁ„o de preencher lugares
+//Fun√ß√£o de preencher lugares
 void preencherLugar (int lugar,char assentos[200])
 {
   assentos[lugar-1] = 'R';
 }
 
 
-//FunÁ„o para cancelar reservas
+//Fun√ß√£o para cancelar reservas
 void cancelarReserva (int lugar,char assentos[200])
 {
    assentos[lugar-1] = 'D';
 }
 
 
-//FunÁ„o para efetivar compra
+//Fun√ß√£o para efetivar compra
 int efetivarCompra (int lugar,char assentos[200])
 {
   if (assentos[lugar-1] == 'R')
@@ -307,7 +306,7 @@ int efetivarCompra (int lugar,char assentos[200])
 }
 
 
-//FunÁ„o do relatÛrio
+//Fun√ß√£o do relat√≥rio
 void relatorio (int quantidadeAssento,char assentos[200])
 {
   int livres = 0, comprados = 0, reservados = 0;
@@ -330,7 +329,7 @@ void relatorio (int quantidadeAssento,char assentos[200])
   
                       	printf(" _______________________________________________________________\n"); 
 						printf("|                                                               |\n");
-                        printf("|                 RelatÛrio da viagem abaixo:                   |\n");
+                        printf("|                 Relat√≥rio da viagem abaixo:                   |\n");
                         printf("|                                                               |\n");
                         printf("|_______________________________________________________________|\n\n");
   
