@@ -1,25 +1,17 @@
-/*
- - Nome Aluno: Lucas Gabriel Gomes de Oliveira.
- - Matrícula Aluno: UC21103713.
- 
- - Nome Aluno: Marcos Rezende dos Santos
- - Matrícula Aluno: UC21106205.
-*/
-
-// Inclusão das bibliotecas
+// InclusÃ£o das bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
 #include <ctype.h>
 
-// Definição das constantes
+// DefiniÃ§Ã£o das constantes
 #define MAX_JOGOS 450
 #define TAM_CIDADE 120
 #define MAX_PRE 50
 
 
-// Declacarção do struct principal
+// DeclacarÃ§Ã£o do struct principal
 struct Jogos {
     int id_jogo;
     char cidade[TAM_CIDADE];
@@ -27,7 +19,7 @@ struct Jogos {
 };
 
 
-// Declacarção das funções
+// DeclacarÃ§Ã£o das funÃ§Ãµes
 int verificar_id_jogo(struct Jogos *id_item);
 float verificar_total_jogo();
 
@@ -46,7 +38,7 @@ int main(void) {
      FILE *pont_arquivo;
      pont_arquivo = fopen("nomePresidente.txt", "a"); // O a permite adiconar elemetos ao arquivo sem sobrescrever
      
-     // Verifica se o arquivo não possui nem um erro
+     // Verifica se o arquivo nÃ£o possui nem um erro
      if(pont_arquivo == NULL) {
           printf("Erro ao abrir o arquivo");
           return 1;
@@ -54,14 +46,14 @@ int main(void) {
      
      
      printf("Projeto 02\n");
-     printf("Para dar ínicio ao programa, informe o nome do presidente!\n");
-     printf("\n======================================Inserção do nome da Autoridade Máxima====================================\n");
+     printf("Para dar Ã­nicio ao programa, informe o nome do presidente!\n");
+     printf("\n======================================InserÃ§Ã£o do nome da Autoridade MÃ¡xima====================================\n");
      printf("\n\n");
           
                     
      do {
           fflush(stdin);
-          printf("Informe o nome do presidente da Confederação de Futebol Brasileira(CBF): "); 
+          printf("Informe o nome do presidente da ConfederaÃ§Ã£o de Futebol Brasileira(CBF): "); 
           fgets(nome_presidente, MAX_PRE, stdin);
           
           tamanho_nom_pres = strlen(nome_presidente);
@@ -72,7 +64,7 @@ int main(void) {
                printf("Nome invalido, tente novamente:\n");
           }
           else {
-               printf("Informações inseridas corretamentes, prossiga as operações!\n");
+               printf("InformaÃ§Ãµes inseridas corretamentes, prossiga as operaÃ§Ãµes!\n");
                
                
                // For que coloca todas as letras em caixa baixa
@@ -106,35 +98,35 @@ int main(void) {
      system("pause");
      system("cls");
 
-     // Menu de opções
+     // Menu de opÃ§Ãµes
      do{  
           printf("======================================Menu de Funcionalidades================================================\n\n");
-          printf("Nas opções abaixo escolha o número que satisfaz suas necessidades:\n");
-          printf("[1] - Cadastrar as informações do jogo\n");
-          printf("[2] - Verificar as informações do jogo\n");
+          printf("Nas opÃ§Ãµes abaixo escolha o nÃºmero que satisfaz suas necessidades:\n");
+          printf("[1] - Cadastrar as informaÃ§Ãµes do jogo\n");
+          printf("[2] - Verificar as informaÃ§Ãµes do jogo\n");
           printf("[3] - Consultar jogos em determinada cidade\n");
           printf("[4] - Encerrar o programa!\n");
           printf("\n=============================================================================================================\n\n");
           
           
-          printf("\nInforme a opção desejada: ");
+          printf("\nInforme a opÃ§Ã£o desejada: ");
           fflush(stdin);
           scanf("%d", &opcao_menu);
           switch(opcao_menu) {
                
                case 1:
                     system("cls");
-                    printf("Inserção dos Dados no Sistema\n\n");
+                    printf("InserÃ§Ã£o dos Dados no Sistema\n\n");
                 
                 
-                    // Executa em cada item do struct a função de acordo com que o vetor é incrementado
-                    // Na função abaixo é passado um ponteiro para a execução da função
+                    // Executa em cada item do struct a funÃ§Ã£o de acordo com que o vetor Ã© incrementado
+                    // Na funÃ§Ã£o abaixo Ã© passado um ponteiro para a execuÃ§Ã£o da funÃ§Ã£o
                     jogos_id[i].id_jogo = verificar_id_jogo(&jogos_id);
                     printf("\n");
                     jogos_id[i].valor_total = verificar_total_jogo();
                     
                     
-                    // Verificação da cidade informada
+                    // VerificaÃ§Ã£o da cidade informada
                     do {
                          fflush(stdin);
                          printf("\nInforme o nome da cidade onde foi realizado o jogo: ");
@@ -146,7 +138,7 @@ int main(void) {
                               printf("Nome da cidade esta incorreto, por favor, informe novamente: \n");
                          }
                          else {
-                              printf("Informações inseridas corretamentes, prossiga as operações!\n ");
+                              printf("InformaÃ§Ãµes inseridas corretamentes, prossiga as operaÃ§Ãµes!\n ");
                          }
                          
                          for(contador = 0; contador < tamanho_cidade; contador++){
@@ -164,7 +156,7 @@ int main(void) {
                          
                     }while(tamanho_cidade == 1 && tamanho_cidade < TAM_CIDADE);
                     
-                    // Fazer a verificação do contador aqui(Ver com o monitor)
+                    // Fazer a verificaÃ§Ã£o do contador aqui(Ver com o monitor)
                     i++;
                     
                     printf("\n\n");
@@ -173,9 +165,9 @@ int main(void) {
                     
                case 2:
                     system("cls");
-                    printf("Apresentação dos Dados\n\n");
+                    printf("ApresentaÃ§Ã£o dos Dados\n\n");
                     
-                    // Exibição dos dados em formato de tabela
+                    // ExibiÃ§Ã£o dos dados em formato de tabela
                     printf("Nome do Presidente:\n");
                     printf("%s\n", nome_presidente);
                     
@@ -215,7 +207,7 @@ int main(void) {
                          }
                     
                     
-                    // Fazer a verificação das ciddaes(Ver com o monitor)
+                    // Fazer a verificaÃ§Ã£o das ciddaes(Ver com o monitor)
                     for(contador = 0; contador < MAX_JOGOS; contador++) {
                          if(strcmp(cidade_veri, jogos_id[contador].cidade) == 0) {
                               printf("\nJogos realizados na cidade de %s", cidade_veri);
@@ -227,9 +219,9 @@ int main(void) {
                     } 
                     
                     
-                    // Verificação para imprimir na tela uma mensagem de erro
+                    // VerificaÃ§Ã£o para imprimir na tela uma mensagem de erro
                     if(verificar_cidade == 0) {
-                         printf("Não ha correspondencias de jogos nessa cidade!");
+                         printf("NÃ£o ha correspondencias de jogos nessa cidade!");
                          printf("\n\n");
                     }  
                     verificar_cidade = 0;
@@ -248,21 +240,21 @@ int main(void) {
 	return 0;
 }
 
-// Código que a função irá executar
+// CÃ³digo que a funÃ§Ã£o irÃ¡ executar
 int verificar_id_jogo(struct Jogos *id_item) {
 	int id = 0, contador = 0;
 	
      do {
      	fflush(stdin);
-		printf("Informe o número do jogo: ");		
+		printf("Informe o nÃºmero do jogo: ");		
 		scanf("%d", &id);
 		
           if(id < 300 || id > 10000) {
-               printf("Identificador do número invalido, por favor, informe novamente: ");
+               printf("Identificador do nÃºmero invalido, por favor, informe novamente: ");
           }
           for(contador = 0; contador < MAX_JOGOS; contador++) {
                if(id == id_item[contador].id_jogo) {
-                    printf("Identificador do número invalido, número repetido!\n ");
+                    printf("Identificador do nÃºmero invalido, nÃºmero repetido!\n ");
                     id = 0;
                     break;
                }
@@ -274,20 +266,20 @@ int verificar_id_jogo(struct Jogos *id_item) {
      
 }
 
-// Código que a função irá executar
+// CÃ³digo que a funÃ§Ã£o irÃ¡ executar
 float verificar_total_jogo() {
      float total = 0;
      
      do {
      	fflush(stdin);
-		printf("Informe o total de arrecadação do jogo: ");		
+		printf("Informe o total de arrecadaÃ§Ã£o do jogo: ");		
 		scanf("%f", &total);
 		
           if(total< 1000 || total > 1000000) {
-               printf("Total de arrecadação do jogo invalido, por favor, informe novamente: ");
+               printf("Total de arrecadaÃ§Ã£o do jogo invalido, por favor, informe novamente: ");
           }
           else {
-               printf("Informações inseridas corretamentes, prossiga as operações!\n ");
+               printf("InformaÃ§Ãµes inseridas corretamentes, prossiga as operaÃ§Ãµes!\n ");
           }
            
           
